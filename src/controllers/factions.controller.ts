@@ -1,26 +1,14 @@
 import { Request, Response } from "express";
+import { FactionModel } from "../models/faction.models";
 
-export const getFactions = (_req: Request, res: Response) => {
-  res.json({
-    imperio: {
-      name: "Imperio de la humanidad",
-      description:
-        "El Imperio de la Humanidad es el mayor imperio estelar de la galaxia, gobernado por el Dios-Emperador desde la Sagrada Terra. Abarca un millón de mundos con una inmensa diversidad de entornos, culturas y poblaciones, desde junglas primitivas hasta ciudades colmena superpobladas. La variedad de mundos hace imposible calcular con precisión su número de habitantes, y las diferencias entre ellos son enormes en lenguaje, costumbres y apariencia.",
-      imageURL: "https://wallpapercave.com/wp/wp10922989.jpg",
-    },
-    chaos: {
-      name: "Fuerzas del Caos",
-      description:
-        "El Caos es la energía psíquica que forma la Disformidad, un plano espiritual inseparable de él. Representa una fuerza inmensa y corruptora, asociada con los Dioses del Caos, sus seguidores y su influencia. Aunque los psíquicos pueden usar esta energía para obtener habilidades sobrenaturales, también corren el riesgo de ser corrompidos física y mentalmente por su poder maligno.",
-      imageURL: "https://wallpapercave.com/wp/wp10923004.jpg",
-    },
-    xenos: {
-      name: "Razas xenos",
-      description:
-        'Xenos es un término en gótico clásico usado por el Imperio de la Humanidad para referirse a cualquier especie inteligente no humana, ya sea aliada o enemiga. Significa "extranjero" o "alienígena" y se emplea comúnmente como prefijo en palabras como xeno-artefacto o xenotecnología, que designan objetos o tecnologías de origen alienígena.',
-      imageURL: "https://wallpapercave.com/wp/oUdhPgJ.jpg",
-    },
-  });
+export const getFactions = async (req: Request, res: Response) => {
+  try {
+    const factions = await FactionModel.find();
+    res.status(200).json(factions);
+  } catch (error) {
+    console.error("Error al obtener facciones:", error);
+    res.status(500).json({ message: "Error al obtener facciones" });
+  }
 };
 
 export const getImperio = (_req: Request, res: Response) => {

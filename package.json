@@ -5,6 +5,9 @@
   "main": "src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "test:connection": "npx ts-node src/scripts/testConnection.ts",
+    "test:mongoose": "npx ts-node src/scripts/testMongoose",
+    "seedFactions": "npx ts-node src/scripts/seedFactions.ts",
     "dev": "nodemon src/index.ts"
   },
   "keywords": [
@@ -17,13 +20,18 @@
   "author": "Pablo Garcia Rodriguez",
   "license": "MIT",
   "dependencies": {
-    "express": "5.1.0"
+    "dotenv": "17.2.0",
+    "express": "5.1.0",
+    "mongodb": "^6.18.0",
+    "mongoose": "8.16.4"
   },
   "devDependencies": {
-    "@types/express": "^5.0.3",
-    "@types/node": "^24.1.0",
+    "@types/express": "5.0.3",
+    "@types/mongoose": "5.11.97",
+    "@types/node": "24.1.0",
     "nodemon": "3.1.10",
-    "ts-node-dev": "^2.0.0",
-    "typescript": "^5.8.3"
+    "ts-node": "10.9.2",
+    "ts-node-dev": "2.0.0",
+    "typescript": "5.8.3"
   }
 }

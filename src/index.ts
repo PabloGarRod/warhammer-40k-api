@@ -1,25 +1,17 @@
-import express, { application } from "express";
-import faccionesRoutes from "./routes/factions.routes";
-import regionsRoutes from "./routes/regions.routes";
-import agesRoutes from "./routes/ages.routes";
+import dotenv from "dotenv";
+import app from "./app";
+import { connectDB } from "./config/database";
 
-const app = express();
-const PORT = 3000;
+dotenv.config();
 
-app.use(express.json());
+const PORT = process.env.PORT ?? 1234;
 
-app.use("/api/v1/factions", faccionesRoutes);
-app.use("/api/v1/regions", regionsRoutes);
-app.use("/api/v1/ages", agesRoutes);
+const startServer = async () => {
+  await connectDB();
 
-app.get("/api/v1", (req, res) => {
-  res.send({ message: "Bienvenido a la API de Warhammer 40k" });
-});
+  app.listen(PORT, () => {
+    console.log(`API levantada en http://localhost:${PORT}/api/v1`);
+  });
+};
 
-app.use((req, res) => {
-  res.status(404).json({ error: "Not Found" });
-});
-
-app.listen(PORT, () => {
-  console.log(`API levantada en http://localhost:${PORT}/api/v1`);
-});
+startServer();
