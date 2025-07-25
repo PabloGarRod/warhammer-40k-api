@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { FactionModel } from "../models/faction.models";
+import { FactionModel } from "../models/faction.model";
 
 export const getFactions = async (req: Request, res: Response) => {
   try {

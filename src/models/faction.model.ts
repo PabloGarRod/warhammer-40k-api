@@ -1,12 +1,12 @@
 import { Schema, model } from "mongoose";
 
-interface IFaction {
+export interface Faction {
   name: string;
   description: string;
   imageURL?: string;
 }
 
-const factionSchema = new Schema<IFaction>(
+const factionSchema = new Schema<Faction>(
   {
     name: { type: String, required: true },
     description: { type: String, required: true },
@@ -17,4 +17,4 @@ const factionSchema = new Schema<IFaction>(
   }
 );
 
-export const FactionModel = model<IFaction>("Faction", factionSchema);
+export const FactionModel = model<Faction>("Faction", factionSchema);

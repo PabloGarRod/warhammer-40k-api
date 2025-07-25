@@ -1,5 +1,5 @@
 import { connectDB } from "../config/database";
-import { FactionModel } from "../models/faction.models";
+import { FactionModel } from "../models/faction.model";
 import dotenv from "dotenv";
 
 dotenv.config();
