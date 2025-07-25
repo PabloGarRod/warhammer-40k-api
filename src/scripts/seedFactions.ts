@@ -1,8 +1,7 @@
 import { connectDB } from "../config/database";
 import { FactionModel } from "../models/faction.model";
-import dotenv from "dotenv";
 
-dotenv.config();
+process.loadEnvFile();
 
 console.log("MONGO_URI:", process.env.MONGO_URI);
 

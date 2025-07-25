@@ -8,7 +8,8 @@
     "test:connection": "npx ts-node src/scripts/testConnection.ts",
     "test:mongoose": "npx ts-node src/scripts/testMongoose",
     "seedFactions": "npx ts-node src/scripts/seedFactions.ts",
-    "dev": "nodemon src/index.ts"
+    "dev": "nodemon src/index.ts",
+    "reinstall": "rm -rf node_modules package-lock.json && npm install"
   },
   "keywords": [
     "warhammer",
@@ -20,7 +21,6 @@
   "author": "Pablo Garcia Rodriguez",
   "license": "MIT",
   "dependencies": {
-    "dotenv": "17.2.0",
     "express": "5.1.0",
     "mongodb": "^6.18.0",
     "mongoose": "8.16.4",
