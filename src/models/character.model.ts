@@ -1,6 +1,7 @@
 import { Schema, model } from "mongoose";
 
 interface Character {
+  idName: string;
   name: string;
   race: string;
   faction: string;
@@ -14,6 +15,7 @@ interface Character {
 const characterSchema = new Schema<Character>(
   {
     name: { type: String, required: true, unique: true },
+    idName: { type: String, required: true, unique: true },
     originPlanet: { type: String, required: true },
     race: { type: String, required: true },
     faction: { type: String, required: true },

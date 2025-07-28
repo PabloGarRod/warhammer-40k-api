@@ -1,6 +1,7 @@
 import { z } from "zod";
 
 export const characterSchema = z.object({
+  idName: z.string(),
   name: z.string(),
   race: z.string(),
   faction: z.string(),
